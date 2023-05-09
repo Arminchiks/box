@@ -1,0 +1,54 @@
+from tkinter import*
+from PIL import ImageTk, Image
+
+import tkinter as tk
+from tkinter import ttk
+myWindow=Tk()
+myWindow.title("Pieteikuma anketa")
+myWindow.geometry("450x450")
+poga1=Button(myWindow, text="Aizvērt", bg="darkred", fg="white", width=10, height=3, command=myWindow.destroy)
+poga1.grid(row=10, column=1)
+Label(myWindow, text="Pieteikuma anketa", font=("arial",24), fg="red").grid(row=3, column=1)
+Label(myWindow, text="Vārds ", font=("arial",14)).grid(row=4, column=0)
+Label(myWindow, text="Uzvārds ", font=("arial",14)).grid(row=5, column=0)
+Label(myWindow, text="Skola ", font=("arial",14)).grid(row=6, column=0)
+Label(myWindow, text="Klase ", font=("arial",14)).grid(row=7, column=0)
+Label(myWindow, text="Priekšmeti", font=("arial",14)).grid(row=8, column=0)
+Label(myWindow, text='Vērtējums', font=('arial',14)).grid(row=9, column=0)
+
+e1 = Entry(myWindow , bd=5).grid(row=4, column=1)
+e2 = Entry(myWindow , bd=5).grid(row=5, column=1)
+e3 = Entry(myWindow , bd=5).grid(row=6, column=1)
+
+n = tk.StringVar()
+klase = ttk.Combobox(myWindow, width = 18, textvariable = n)
+klase['values'] = ('A','B','C','D')
+klase.grid(row=7, column=1)
+klase.current()
+n = tk.StringVar()
+prieksmeti = ttk.Combobox(myWindow, width = 18, textvariable = n)
+prieksmeti['values'] = ('Sports','Matemātika','Fizika','Ķīmija','Bioloģija','Vēsture','Mūzika','Ekonomika','Literatūra','Latviešu valoda','Angļu valoda','Krievu valoda')
+prieksmeti.grid(row=8, column=1)
+prieksmeti.current()
+
+sp = Spinbox(myWindow, from_= 0, to = 10).grid(row=9, column=1)
+
+
+
+
+
+
+  
+
+
+
+
+
+img = Image.open("vajag.png")
+img = img.resize((125, 125))
+photo = ImageTk.PhotoImage(img)
+label = Label(myWindow, image=photo)
+label.grid(row=2, column=1)
+
+
+myWindow.mainloop()
